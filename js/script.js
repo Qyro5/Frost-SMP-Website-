@@ -1,27 +1,24 @@
-// Frost SMP Website Interactions
+// Frost SMP Website Scripts
 
 
 // Mobile navigation
 
 const menuButton = document.querySelector(".menu-button");
-const nav = document.querySelector("nav");
+const navigation = document.querySelector("nav");
+
 
 menuButton.addEventListener("click", () => {
 
-    if(nav.style.display === "flex") {
+    navigation.classList.toggle("active");
 
-        nav.style.display = "none";
+
+    if(menuButton.innerHTML === "☰") {
+
+        menuButton.innerHTML = "✕";
 
     } else {
 
-        nav.style.display = "flex";
-        nav.style.flexDirection = "column";
-        nav.style.position = "absolute";
-        nav.style.top = "70px";
-        nav.style.right = "8%";
-        nav.style.background = "rgba(10,30,50,0.9)";
-        nav.style.padding = "20px";
-        nav.style.borderRadius = "15px";
+        menuButton.innerHTML = "☰";
 
     }
 
@@ -29,50 +26,45 @@ menuButton.addEventListener("click", () => {
 
 
 
+// Close mobile menu when clicking a link
 
-// Active navigation while scrolling
+document.querySelectorAll("nav a").forEach(link => {
 
-const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll("nav a");
+    link.addEventListener("click", () => {
+
+        navigation.classList.remove("active");
+
+        menuButton.innerHTML = "☰";
+
+    });
+
+});
+
+
+
+
+
+// Navbar glass effect while scrolling
+
+const navbar = document.querySelector(".navbar");
 
 
 window.addEventListener("scroll", () => {
 
 
-    let current = "";
+    if(window.scrollY > 50) {
 
+        navbar.style.background =
+        "rgba(5,20,35,0.9)";
 
-    sections.forEach(section => {
+    }
 
+    else {
 
-        const sectionTop = section.offsetTop - 120;
+        navbar.style.background =
+        "rgba(5,20,35,0.45)";
 
-
-        if(scrollY >= sectionTop) {
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-
-
-    links.forEach(link => {
-
-
-        link.classList.remove("active");
-
-
-        if(link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
-
-
-    });
-
+    }
 
 
 });
@@ -82,55 +74,55 @@ window.addEventListener("scroll", () => {
 
 
 
-// Frost particle system
+
+// Snow particles
 
 
-const snowContainer = document.querySelector(".snow");
+const particleContainer =
+document.querySelector(".particles");
 
 
-function createSnowflake(){
+function createSnow() {
 
 
-    const snowflake = document.createElement("span");
+    const snow =
+    document.createElement("span");
 
 
-    snowflake.innerHTML = "❄";
+    snow.innerHTML = "❄";
 
 
-    snowflake.style.position = "absolute";
+    snow.style.position = "absolute";
 
-
-    snowflake.style.left =
+    snow.style.left =
     Math.random() * 100 + "%";
 
 
-    snowflake.style.top = "-20px";
+    snow.style.top = "-30px";
 
 
-    snowflake.style.fontSize =
+    snow.style.fontSize =
     Math.random() * 15 + 10 + "px";
 
 
-    snowflake.style.opacity =
+    snow.style.opacity =
     Math.random();
 
 
-
-    snowflake.style.color =
-    "#bcecff";
-
+    snow.style.color =
+    "#bdefff";
 
 
-    snowContainer.appendChild(snowflake);
+    particleContainer.appendChild(snow);
 
 
 
-    const duration =
-    Math.random() * 5 + 5;
+    const fallTime =
+    Math.random() * 5000 + 5000;
 
 
 
-    snowflake.animate(
+    snow.animate(
 
         [
 
@@ -140,17 +132,16 @@ function createSnowflake(){
 
             {
                 transform:
-                `translateY(${window.innerHeight + 50}px)`
+                `translateY(${window.innerHeight + 100}px)`
             }
 
         ],
 
         {
 
-            duration:
-            duration * 1000,
+            duration:fallTime,
 
-            iterations:1
+            easing:"linear"
 
         }
 
@@ -158,43 +149,80 @@ function createSnowflake(){
 
 
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        snowflake.remove();
+        snow.remove();
 
-    }, duration * 1000);
+    }, fallTime);
 
 
 }
 
 
 
-setInterval(createSnowflake, 250);
+setInterval(createSnow,250);
 
 
 
 
 
 
-// Frost glow effect on buttons
+
+// Reveal sections on scroll
 
 
-const button =
-document.querySelector(".main-button");
+const revealElements =
+document.querySelectorAll(
+".feature, .item, .team-card, .server-card"
+);
 
 
-button.addEventListener("mouseenter",()=>{
 
-    button.style.boxShadow =
-    "0 0 40px #8be3ff";
+const observer =
+new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+    if(entry.isIntersecting){
+
+        entry.target.style.opacity="1";
+
+        entry.target.style.transform=
+        "translateY(0)";
+
+    }
+
 
 });
 
 
-button.addEventListener("mouseleave",()=>{
+},
+{
 
-    button.style.boxShadow =
-    "none";
+threshold:0.2
+
+});
+
+
+
+
+
+revealElements.forEach(element=>{
+
+
+    element.style.opacity="0";
+
+    element.style.transform=
+    "translateY(40px)";
+
+    element.style.transition=
+    "0.7s ease";
+
+
+    observer.observe(element);
+
 
 });
 
@@ -203,29 +231,32 @@ button.addEventListener("mouseleave",()=>{
 
 
 
-// Navbar background change on scroll
+
+// Fake copy IP button
 
 
-const navbar =
-document.querySelector(".navbar");
+const copyButton =
+document.querySelector(".server-card button");
 
 
-window.addEventListener("scroll",()=>{
+copyButton.addEventListener("click",()=>{
 
 
-    if(window.scrollY > 50){
+    navigator.clipboard.writeText(
+        "Coming Soon"
+    );
 
-        navbar.style.background =
-        "rgba(5,20,35,0.85)";
 
-    }
+    copyButton.innerHTML =
+    "COPIED!";
 
-    else {
 
-        navbar.style.background =
-        "rgba(10,30,50,0.45)";
+    setTimeout(()=>{
 
-    }
+        copyButton.innerHTML =
+        "COPY IP";
+
+    },2000);
 
 
 });
