@@ -29,6 +29,8 @@
 JOIN SERVER
 </a>
 
+<button class="nav-discord">•</button>
+
 <button class="menu-button">
 ☰
 </button>
@@ -112,6 +114,45 @@ COPY IP
 
 </section>
 
+  <section class="cards">
+
+  <!-- Server Card -->
+  <div class="card">
+    <h2>Frost SMP</h2>
+    <p class="subtitle">Server IP</p>
+
+    <h1 class="highlight">COMING SOON</h1>
+
+    <p>Minecraft Version: <strong>1.21.x</strong></p>
+    <p>Custom Frost Plugin</p>
+
+    <button onclick="copyIP()">COPY IP</button>
+  </div>
+
+  <!-- Discord Card -->
+  <div class="card">
+    <h2>Frost SMP</h2>
+    <p class="subtitle">Discord Server</p>
+
+    <h1 class="highlight">JOIN NOW</h1>
+
+    <p>👥 Friendly Community</p>
+    <p>📢 Development Updates</p>
+    <p>🎉 Community Events</p>
+
+    <a href="https://discord.gg/YOURINVITE" target="_blank">
+      <button>JOIN DISCORD</button>
+    </a>
+  </div>
+
+</section>
+
+<script>
+function copyIP() {
+    navigator.clipboard.writeText("play.frostsmp.net");
+    alert("Server IP copied!");
+}
+</script>
 
 
 
