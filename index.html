@@ -1,342 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Frost SMP | The Power of Ice</title>
+    <title>Frost SMP | A New Era of Survival</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="navbar">
+<div id="particles"></div>
+
+<header>
+
+<nav class="navbar">
 
 <div class="logo">
-❄ FROST SMP
+❄️ Frost SMP
 </div>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#features">Features</a>
-<a href="#items">Items</a>
-<a href="#team">Team</a>
-<a href="#plugin">Plugin</a>
-</nav>
+<ul class="nav-links">
 
-<a class="join-button" href="#join">
-JOIN SERVER
+<li><a href="index.html" class="active">Home</a></li>
+
+<li><a href="join.html">Join</a></li>
+
+<li><a href="rules.html">Rules</a></li>
+
+<li><a href="wiki.html">Wiki</a></li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<a class="discord-btn" href="#">
+Discord
 </a>
 
-<button class="nav-discord">•</button>
+</div>
 
-<button class="menu-button">
-☰
-</button>
+</nav>
 
 </header>
 
-
-
-<section class="hero" id="home">
-
-<div class="particles"></div>
+<section class="hero">
 
 <div class="hero-content">
 
-<div class="logo-placeholder">
-FROST SMP LOGO
-</div>
-
+<span class="tag">
+Minecraft Java 1.21.x
+</span>
 
 <h1>
-THE POWER OF ICE
+
+Forge Your Legacy
+
 </h1>
 
 <p>
-Enter a frozen world where ancient ice magic has been uncovered.
-Custom abilities, weapons and items created with the feeling of vanilla Minecraft.
+
+Frost SMP is a premium Minecraft survival experience featuring
+custom progression, powerful weapons, unique items,
+community events and an ever-evolving world.
+
 </p>
 
+<div class="hero-buttons">
 
-<a href="#join" class="main-button">
-JOIN FROST SMP
+<a href="join.html" class="primary">
+
+Join Server
+
 </a>
 
+<a href="wiki.html" class="secondary">
+
+Explore Wiki
+
+</a>
+
+</div>
+
+</div>
+
+<div class="scroll-indicator">
+
+↓
 
 </div>
 
 </section>
 
+<section class="join-preview">
 
-  <section class="cards">
-
-  <!-- Server Card -->
-  <div class="card">
-    <h2>Frost SMP</h2>
-    <p class="subtitle">Server IP</p>
-
-    <h1 class="highlight">COMING SOON</h1>
-
-    <p>Minecraft Version: <strong>1.21.x</strong></p>
-    <p>Custom Frost Plugin</p>
-
-    <button onclick="copyIP()">COPY IP</button>
-  </div>
-
-  <!-- Discord Card -->
-  <div class="card">
-    <h2>Frost SMP</h2>
-    <p class="subtitle">Discord Server</p>
-
-    <h1 class="highlight">JOIN NOW</h1>
-
-    <p>👥 Friendly Community</p>
-    <p>📢 Development Updates</p>
-    <p>🎉 Community Events</p>
-
-    <a href="https://discord.gg/YOURINVITE" target="_blank">
-      <button>JOIN DISCORD</button>
-    </a>
-  </div>
-
-</section>
-
-<script>
-function copyIP() {
-    navigator.clipboard.writeText("play.frostsmp.net");
-    alert("Server IP copied!");
-}
-</script>
-
-
-
-
-<section class="section" id="features">
+<div class="section-title">
 
 <h2>
-FEATURES
+
+Ready to Join?
+
 </h2>
 
-
-<div class="feature-grid">
-
-
-<div class="feature">
-❄ Frost Items
 <p>
-Discover unique frozen equipment.
+
+Everything you need to start playing.
+
 </p>
+
 </div>
 
+<div class="join-card">
 
-<div class="feature">
-⚔ Abilities
-<p>
-Unlock powerful ice abilities.
+<div>
+
+<h3>
+
+Server IP
+
+</h3>
+
+<p id="server-ip">
+
+play.frostsmp.net
+
 </p>
+
 </div>
 
+<div>
 
-<div class="feature">
-💎 Rare Materials
+<h3>
+
+Version
+
+</h3>
+
 <p>
-Collect rare frost resources.
+
+1.21.x Java Edition
+
 </p>
+
 </div>
 
+<div>
 
-<div class="feature">
-🌨 Progression
-<p>
-Create your own path through the frozen world.
-</p>
+<button id="copyIP">
+
+Copy IP
+
+</button>
+
 </div>
-
 
 </div>
 
 </section>
 
+<section class="about">
 
-
-
-
-<section class="section" id="items">
+<div class="section-title">
 
 <h2>
-CUSTOM ITEMS
+
+Why Frost SMP?
+
 </h2>
 
-
-<div class="item-grid">
-
-
-<div class="item">
-<div class="image-placeholder">
-Frost Shard
-</div>
-
-<h3>
-Frost Shard
-</h3>
-
 <p>
-Ancient crystal containing winter energy.
+
+More than survival. Every adventure matters.
+
 </p>
 
 </div>
 
+<div class="about-grid">
 
-
-<div class="item">
-
-<div class="image-placeholder">
-Frozen Weapon
-</div>
+<div class="glass-card">
 
 <h3>
-Ice Weapons
+
+⚔️ Custom Weapons
+
 </h3>
 
 <p>
-Powerful weapons forged with frost magic.
+
+Unlock unique weapons with powerful abilities and upgrade paths.
+
 </p>
 
 </div>
 
-
-
-<div class="item">
-
-<div class="image-placeholder">
-Frost Spike
-</div>
+<div class="glass-card">
 
 <h3>
-Frozen Spikes
+
+💎 Custom Items
+
 </h3>
 
 <p>
-Control battles using the power of ice.
+
+Collect rare items and resources to improve your gear and discover new mechanics.
+
 </p>
 
 </div>
 
+<div class="glass-card">
+
+<h3>
+
+📈 Progression
+
+</h3>
+
+<p>
+
+Advance through custom systems instead of rushing directly to end-game gear.
+
+</p>
 
 </div>
 
+</div>
 
 </section>
 
-
-
-
-
-
-<section class="section" id="team">
-
-<h2>
-MEET THE TEAM
-</h2>
-
-
-<div class="team-grid">
-
-
-<div class="team-card">
-
-<div class="avatar">
-?
-</div>
-
-<h3>
-Qyro_
-</h3>
-
-<span>
-OWNER
-</span>
-
-<p>
-Founder and creator of Frost SMP.
-</p>
-
-</div>
-
-
-
-
-<div class="team-card">
-
-<div class="avatar">
-?
-</div>
-
-<h3>
-Blendy_S
-</h3>
-
-<span>
-CO OWNER
-</span>
-
-<p>
-AfraidDragon3
-<br>
-Server management and development.
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section class="section" id="plugin">
-
-
-<h2>
-CUSTOM FROST PLUGIN
-</h2>
-
-
-<p class="large-text">
-
-Frost SMP uses a custom plugin designed to bring
-new abilities, weapons and progression systems
-while keeping the Minecraft feeling players know.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-<footer>
-
-<p>
-Frost SMP — Where winter becomes a weapon.
-</p>
-
-</footer>
-
-
-
-<script src="js/script.js"></script>
-
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
